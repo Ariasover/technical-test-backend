@@ -1,9 +1,9 @@
 # Run with "python server.py"
 
-from bottle import run
+from bottle import route, run, template
 
-# Start your code here, good luck (: ...
+@route('/api-v1/<name>')
+def index(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
 
-
-
-run(host='localhost', port=8000)
+run(host='localhost', port=8080)
